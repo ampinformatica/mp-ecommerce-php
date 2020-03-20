@@ -127,7 +127,7 @@
                                             <?php echo "Subtotal: $" . $_POST['price'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "Cantidad" . $_POST['unit'] ?>
+                                            <?php echo "Cantidad: " . $_POST['unit'] ?>
                                         </h3>
                                     </div>
                                     <form action="/inicio_pago.php" method="get">
