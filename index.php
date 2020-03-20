@@ -42,6 +42,11 @@
 
 
 <body class="as-theme-light-heroimage">
+<?php
+  require_once 'vendor/autoload.php';
+  MercadoPago\MercadoPagoSdk::initialize(); 
+  $config = MercadoPago\MercadoPagoSdk::config(); 
+?>
 
     <div class="stack">
         
