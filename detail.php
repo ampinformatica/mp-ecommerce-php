@@ -42,6 +42,9 @@
 
 
 <body class="as-theme-light-heroimage">
+<?php
+//include __DIR__ . '/mp-ecommerce-php-master/inicio_pago.php';
+?>
 
     <div class="stack">
         
@@ -130,8 +133,7 @@
                                             <?php echo "Cantidad: " . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <form action="/inicio_pago.php" method="get">
-
+                                    <form action="inicio_pago.php" method="get">
                                             <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
                                     </form>
                                 </div>
