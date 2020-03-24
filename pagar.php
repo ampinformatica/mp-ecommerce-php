@@ -1,13 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pagar</title>
 
-<?php
+  </head>
+  <body>
+
+  <?php
 // SDK de Mercado Pago
-require __DIR__ .  '/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 // Agrega credenciales
 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398');
 
 // Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
+//$preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
@@ -24,3 +31,7 @@ $preference->save();
    data-preference-id="<?php echo $preference->id; ?>">
   </script>
 </form>
+
+    <a href="<?php echo $preference->init_point; ?>">Pagar con Mercado Pago</a>
+  </body>
+</html>
