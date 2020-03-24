@@ -1,8 +1,11 @@
+<script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+
+<script src=window.Mercadopago.setPublishableKey("APP_USR-a83913d5-e583-4556-8c19-d2773746b430")></script>
 <?php
 
     require_once 'vendor/autoload.php';
 
-    MercadoPago\SDK::setAccessToken("ENV_ACCESS_TOKEN");
+    MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398");
 
     $payment = new MercadoPago\Payment();
 
