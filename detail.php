@@ -136,10 +136,9 @@
                                     <form action="pagar.php" method="get">
                                     <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> --> 
                                          <script
-                                            var precio= <?php echo $_POST['price']
                                             src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
                                             data-public-key="APP_USR-a83913d5-e583-4556-8c19-d2773746b430"
-                                            data-transaction-amount= $precio>
+                                            data-transaction-amount= 100>
                                         </script>
                                     </form>
                                 </div>
