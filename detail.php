@@ -133,7 +133,7 @@
                                             <?php echo "Cantidad: " . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <form action="inicio_pago.php" method="get">
+                                    <form action="pagar.php" method="get">
                                             <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
                                     </form>
                                 </div>
