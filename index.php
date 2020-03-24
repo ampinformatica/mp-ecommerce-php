@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=1024">
+  <!-- <meta name="viewport" content="width=1024"> -->  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Tienda e-commerce</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
-
+    
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -41,8 +41,7 @@
 
 <body class="as-theme-light-heroimage">
 <?php
-//require __DIR__  . '/vendor/autoload.php';
-//  require_once 'vendor/autoload.php';
+    require_once 'vendor/autoload.php';
 //  MercadoPago\MercadoPagoSdk::initialize(); 
 //  $config = MercadoPago\MercadoPagoSdk::config(); 
 //;
