@@ -133,12 +133,14 @@
                                             <?php echo "Cantidad: " . $_POST['unit'] ?>
                                         </h3>
                                     </div>
+
                                     <form action="pagar.php" method="get">
                                     <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> --> 
                                          <script
                                             src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
+                                            var precio = <?php echo $_POST['price'];?>
                                             data-public-key="APP_USR-a83913d5-e583-4556-8c19-d2773746b430"
-                                            data-transaction-amount= 100>
+                                            data-transaction-amount= $precio>
                                         </script>
                                     </form>
                                 </div>
