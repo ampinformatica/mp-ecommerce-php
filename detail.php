@@ -1,3 +1,68 @@
+<?php
+// SDK de Mercado Pago
+require __DIR__ .  '/plugins/vendor/autoload.php';
+
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+
+$precio_uni = $_POST["price"];
+$titulo=$_POST['title'];
+$imagen=$_POST['img'];
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->id = "1234";
+$item->title = $titulo;
+$item->description = "Dispositivo móvil de Tienda e-commerce";
+$item->picture_url = $imagen;
+$item->quantity = 1;
+$item->currency_id = "ARS";
+$item->unit_price = $precio_uni;
+$preference->items = array($item);
+
+$preference->payment_methods = array(
+    "excluded_payment_methods" => array(
+      array("id" => "amex")
+    ),
+    "excluded_payment_types" => array(
+      array("id" => "atm")
+    ),
+    "installments" => 6
+  );
+
+
+$preference->save();
+
+$payer = new MercadoPago\Payer();
+  $payer->name = "Lalo";
+  $payer->surname = "Landa";
+  $payer->email = "test_user_63274575@testuser.com";
+  $payer->date_created = "2020-07-02T12:58:41.425-04:00";
+  $payer->phone = array(
+    "area_code" => "11",
+    "number" => "22223333"
+  );
+  
+  $payer->identification = array(
+    "id" => "471923173",
+    "password" => "qatest2417",  
+    "type" => "DNI",
+    "number" => "12345678"
+  );
+  
+  $payer->address = array(
+    "street_name" => "False",
+    "street_number" => 123,
+    "zip_code" => "1111"
+  );
+
+  echo "<a href='$preference->init_point'> Pagar </a>";
+?>
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -42,9 +107,6 @@
 
 
 <body class="as-theme-light-heroimage">
-<?php
-//include __DIR__ . '/mp-ecommerce-php-master/inicio_pago.php';
-?>
 
     <div class="stack">
         
@@ -82,6 +144,9 @@
                                         <h2 class=" as-filter-button-text">
                                             Smartphones
                                         </h2>
+
+
+
                                     </button>
 
 
@@ -133,15 +198,13 @@
                                             <?php echo "Cantidad: " . $_POST['unit'] ?>
                                         </h3>
                                     </div>
+<form action="/procesar-pago" method="POST">
+  <script
+   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+   data-preference-id="<?php echo $preference->id; ?>">
+  </script>
+</form>
 
-                                    <form action="pagar.php" method="get">
-                                    <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> --> 
-                                         <script
-                                            src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
-                                            data-public-key="APP_USR-a83913d5-e583-4556-8c19-d2773746b430"
-                                            data-transaction-amount= <?php echo $_POST['price'];?>>
-                                        </script>
-                                    </form>
                                 </div>
                             </div>
                         </div>
